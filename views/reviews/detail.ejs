@@ -1,0 +1,29 @@
+<%- include('../partials/header'); -%>
+
+<header>
+  <div class="smoothie">
+    <img src="/logo.png" alt="">
+  </div>
+  <div class="headings">
+    <p><%= review.review %> </p>
+    <a class="delete" data-doc="<%= review.id %> ">Delete</a>
+  </div>
+</header>
+
+<%- include('../partials/footer'); -%>
+
+
+<script>
+  const trashcan = document.querySelector('a.delete');
+  trashcan.addEventListener('click', (e) => {
+    const endpoint = `/reviews/${trashcan.dataset.doc}`;
+
+    fetch(endpoint, {
+      method: 'DELETE',
+    })
+    .then(response => response.json())
+    .then(data => window.location.href = data.redirect)
+    .catch(err => console.log(err));
+  });
+  
+</script>

@@ -123,6 +123,7 @@ header .btn{
   display: inline-block;
   font-size: 0.8em;
 }
+
 span{
   font-weight: bold;
 }
@@ -181,4 +182,34 @@ footer{
 .title{
   font-size: 24px;
   margin-left: 20px;
+}
+
+.margin{
+  margin-right: 50px;
+}
+
+.delete{
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: #f0d773;
+  border-radius: 10px;
+  position: absolute;
+  margin-top: 20px;
+}
+
+
+.list {
+  margin: 20px 0;
+  padding: 20px 0;
+}
+
+span{
+  font-weight: bold;
+}
+.toggle{
+  cursor: pointer;
+}
+
+.toggle:hover{
+  text-decoration: underline;
 }

@@ -1,0 +1,24 @@
+<%- include('../partials/header'); -%>
+
+<header>
+  <div class="smoothie">
+    <img src="/logo.png" alt="">
+  </div>
+  <div class="margin">
+    <a href="/reviews/create" class="btn">Post</a>
+  </div>
+  <div class="headings list">
+    <% if(reviews.length > 0){ %> 
+        <% reviews.forEach(review => { %> 
+            <a href="/reviews/<%= review.id %>">
+                <p><span>Review:<br></span><p><%= review.createdAt.toLocaleString()  %></p> <br> <%= review.review %></p><br><br>
+            </a>
+        <% }) %> 
+    <% }else { %> 
+        <p>There are no reviews right now, be the first</p>
+        <% } %> 
+  </div>
+</header>
+
+
+<%- include('../partials/footer'); -%>

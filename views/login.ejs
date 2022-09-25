@@ -5,14 +5,25 @@
     <label for="email">Email</label>
     <input type="text" name="email" required>
     <div class="email error"></div>
-    
     <label for="password">Password</label>
-    <input type="password" name="password" required>
+    <input type="password" name="password" id="password" required>
     <div class="password error"></div>
+    <label for="showPassword" class="toggle" id="togglePassword">Show Password</label> 
     <button>Login</button>
 </form>
 
 <script>
+    // showPassword
+    
+    const togglePassword = document.querySelector("#togglePassword");
+
+    togglePassword.addEventListener("click", function () {
+        // toggle the type attribute
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+    });
+
+    // login
     const form = document.querySelector('form')
     const emailError = document.querySelector('.email.error')
     const passwordError = document.querySelector('.password.error')
@@ -46,6 +57,7 @@
             console.log(err)
         }
     })
+
 </script>
 
 

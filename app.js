@@ -10,6 +10,7 @@ const {requireAuth, checkUser} = require('./middleware/authMiddleware')
 // middleware
 
 app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(cookieParser())
 // view engine
@@ -26,10 +27,11 @@ app.get('*', checkUser)
 app.get('/', (req, res) => res.render('home', {title: 'Home'}));
 app.get('/home', (req, res) => res.redirect('/'))
 app.get('/smoothies', requireAuth, (req, res) => res.render('smoothies', {title: 'Smoothies'}));
+app.use(require('./routes/reviewRoutes'))
 app.use(authRoutes)
 
 
 
+
 app.get('/about', (req, res) => res.render('about', {title: 'About'}))
-app.get('/reviews', (req, res) => res.render('reviews', {title: 'Reviews'}))
 app.use((req, res) => res.status(404).render('404', {title: "404"}))
